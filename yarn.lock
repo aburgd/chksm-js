@@ -994,9 +994,9 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prompts@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/prompts/-/prompts-0.1.4.tgz#d5376a0441edb8c26a65a208ef964ec287ee2b6e"
+prompts@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/prompts/-/prompts-0.1.5.tgz#c71becc063f22b80f0b1c042e55afb9fc6291f6c"
   dependencies:
     clorox "^1.0.1"
     sisteransi "^0.1.0"

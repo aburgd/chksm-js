@@ -11,7 +11,7 @@
     "standard": "^11.0.0"
   },
   "dependencies": {
-    "prompts": "^0.1.4"
+    "prompts": "^0.1.5"
   },
   "scripts": {
     "test": "standard --fix",
