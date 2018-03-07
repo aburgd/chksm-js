@@ -1,0 +1,21 @@
+{
+  "name": "chksm-js",
+  "version": "0.1.0",
+  "description": "checksum generator in modern js",
+  "main": "index.js",
+  "repository": "https://github.com/aburgd/chksm-js",
+  "author": "aburgd",
+  "license": "MIT",
+  "devDependencies": {
+    "flow-bin": "^0.66.0",
+    "standard": "^11.0.0"
+  },
+  "dependencies": {
+    "hashids": "^1.1.4",
+    "prompts": "^0.1.4"
+  },
+  "scripts": {
+    "test": "standard --fix",
+    "start": "node src/index.js"
+  }
+}
