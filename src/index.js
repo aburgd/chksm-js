@@ -48,7 +48,7 @@ async function ask (questions) {
 
 async function operate (responses) {
   let algo = Number(responses['algo'])
-  let filename = responses['filename']
+  let filename: string = responses['filename']
   let digest = responses['digest']
 
   let stream = fs.createReadStream(filename)
@@ -59,36 +59,36 @@ async function operate (responses) {
     // block-scope for `let` variables
     case 1:
       hash = crypto.createHash('sha256')
-      stream.on('data', data => hash.update(data, 'utf8'))
+      stream.on('data', (data: Buffer) => hash.update(data, 'utf8'))
       stream.on('end', () => {
-        let data = hash.digest(digest)
+        let data: string = hash.digest(digest)
         console.log(data)
         return data
       })
       break
     case 2:
       hash = crypto.createHash('sha512')
-      stream.on('data', data => hash.update(data, 'utf8'))
+      stream.on('data', (data: Buffer) => hash.update(data, 'utf8'))
       stream.on('end', () => {
-        let data = hash.digest(digest)
+        let data: string = hash.digest(digest)
         console.log(data)
         return data
       })
       break
     case 3:
       hash = crypto.createHash('sha1')
-      stream.on('data', data => hash.update(data, 'utf8'))
+      stream.on('data', (data: Buffer) => hash.update(data, 'utf8'))
       stream.on('end', () => {
-        let data = hash.digest(digest)
+        let data: string = hash.digest(digest)
         console.log(data)
         return data
       })
       break
     case 4:
       hash = crypto.createHash('md5')
-      stream.on('data', data => hash.update(data, 'utf8'))
+      stream.on('data', (data: Buffer) => hash.update(data, 'utf8'))
       stream.on('end', () => {
-        let data = hash.digest(digest)
+        let data: Buffer = hash.digest(digest)
         console.log(data)
         return data
       })
