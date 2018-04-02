@@ -1,15 +1,24 @@
 // @flow
-const crypto = require('crypto')
-const prompts = require('prompts')
-const fs = require('fs')
+import crypto from 'crypto'
+import prompts from 'prompts'
+import fs from 'fs'
 
-const questions = [
+type Question = {
+  type: string,
+  name: string,
+  message: string,
+  style: ?string,
+  initial: ?number,
+  choices: ?Array<>
+}
+
+const questions: Array<Question> = [
   {
     type: 'text',
     name: 'filename',
     message: 'Enter filepath to checksum',
     style: 'default',
-    intial: ''
+    initial: ''
   },
   {
     type: 'select',
@@ -17,51 +26,47 @@ const questions = [
     message: 'Select a checksum algorithm',
     choices: [
 
-      { title: 'SHA256', value: 1 },
-      { title: 'SHA512', value: 2 },
-      { title: 'SHA1', value: 3 },
-      { title: 'MD5', value: 4 }
+      {title: 'SHA256', value: 1},
+      {title: 'SHA512', value: 2},
+      {title: 'SHA1', value: 3},
+      {title: 'MD5', value: 4}
     ],
-    intial: 1
+    initial: 1
   },
   {
     type: 'select',
     name: 'digest',
     message: 'Select a digest format',
     choices: [
-      { title: 'Hex', value: 'hex' },
-      { title: 'Base64', value: 'base64' }
+      {title: 'Hex', value: 'hex'},
+      {title: 'Base64', value: 'base64'}
     ]
   }
 ]
 
 ask(questions)
   .then((responses) => operate(responses))
-  .catch((error) => {
-    console.error(error)
-  })
+  .catch((error) => console.error(error))
 
 async function ask (questions) {
-  const responses = await prompts(questions)
-  return responses
+  return prompts(questions)
 }
 
 async function operate (responses) {
-  let algo = Number(responses['algo'])
+  let algo: string = responses['algo']
   let filename: string = responses['filename']
-  let digest = responses['digest']
+  let digest: string = responses['digest']
 
   let stream = fs.createReadStream(filename)
   let hash
 
   switch (algo) {
-    // use curly braces for cases to define
     // block-scope for `let` variables
     case 1:
       hash = crypto.createHash('sha256')
       stream.on('data', (data: Buffer) => hash.update(data, 'utf8'))
       stream.on('end', () => {
-        let data: string = hash.digest(digest)
+        let data = hash.digest(digest)
         console.log(data)
         return data
       })
@@ -70,7 +75,7 @@ async function operate (responses) {
       hash = crypto.createHash('sha512')
       stream.on('data', (data: Buffer) => hash.update(data, 'utf8'))
       stream.on('end', () => {
-        let data: string = hash.digest(digest)
+        let data = hash.digest(digest)
         console.log(data)
         return data
       })
@@ -79,7 +84,7 @@ async function operate (responses) {
       hash = crypto.createHash('sha1')
       stream.on('data', (data: Buffer) => hash.update(data, 'utf8'))
       stream.on('end', () => {
-        let data: string = hash.digest(digest)
+        let data = hash.digest(digest)
         console.log(data)
         return data
       })
@@ -88,7 +93,7 @@ async function operate (responses) {
       hash = crypto.createHash('md5')
       stream.on('data', (data: Buffer) => hash.update(data, 'utf8'))
       stream.on('end', () => {
-        let data: Buffer = hash.digest(digest)
+        let data = hash.digest(digest)
         console.log(data)
         return data
       })
