@@ -7,8 +7,10 @@
   "author": "aburgd",
   "license": "MIT",
   "devDependencies": {
-    "flow-bin": "^0.66.0",
-    "standard": "^11.0.0"
+    "babel-eslint": "^8.2.2",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "flow-bin": "latest",
+    "standard": "^11.0.1"
   },
   "dependencies": {
     "prompts": "^0.1.5"
@@ -16,5 +18,9 @@
   "scripts": {
     "test": "standard --fix",
     "start": "node src/index.js"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "plugins": [ "flowtype" ]
   }
 }
