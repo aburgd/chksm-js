@@ -7,9 +7,11 @@
   "author": "aburgd",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.2.2",
-    "babel-preset-flow": "^6.23.0",
+    "@babel/cli": "^7.0.0-beta.44",
+    "@babel/core": "^7.0.0-beta.44",
+    "@babel/plugin-transform-async-to-generator": "^7.0.0-beta.44",
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "@babel/preset-flow": "^7.0.0-beta.44",
     "eslint-plugin-flowtype": "^2.46.1",
     "flow-bin": "^0.69.0",
     "standard": "^11.0.1"
@@ -18,17 +20,18 @@
     "prompts": "^0.1.5"
   },
   "scripts": {
-    "test": "standard --fix",
-    "start": "node src/cli.js"
+    "test": "standard --fix && flow src/cli.js",
+    "start": "node lib/cli.js",
+    "build": "babel src -d lib"
   },
   "standard": {
     "parser": "babel-eslint",
     "plugins": [
       "flowtype"
+    ],
+    "ignore": [
+      "/lib/"
     ]
-  },
-  "babel": {
-    "presets": ["flow"]
   },
   "private": true
 }
