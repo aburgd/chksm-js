@@ -7,9 +7,9 @@ type Question = {
   type: string,
   name: string,
   message: string,
-  style: ?string,
-  initial: ?number,
-  choices: ?Array<>
+  style?: string,
+  initial?: string|number,
+  choices?: Array<{ title: string, value: string|number }>
 }
 
 const questions: Array<Question> = [
@@ -55,7 +55,7 @@ async function ask (questions) {
 async function operate (responses) {
   let algo: string = responses['algo']
   let filename: string = responses['filename']
-  let digest: string = responses['digest']
+  let digest = responses['digest']
 
   let stream = fs.createReadStream(filename)
   let hash
