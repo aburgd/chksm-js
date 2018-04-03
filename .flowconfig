@@ -1,7 +1,8 @@
 [ignore]
-
+./.vscode/
+./node_modules/
 [include]
-
+./src/
 [libs]
 
 [lints]
