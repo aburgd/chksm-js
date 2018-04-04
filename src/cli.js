@@ -45,10 +45,10 @@ const questions: Array<Question> = [
 ]
 
 ask(questions)
-  .then((responses) => operate(responses))
+  .then((responses: Promise<*>) => operate(responses))
   .catch((error) => console.error(error))
 
-async function ask (questions) {
+async function ask (questions: Array<Question>) {
   return prompts(questions)
 }
 
