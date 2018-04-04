@@ -45,8 +45,8 @@ const questions: Array<Question> = [
 ]
 
 ask(questions)
-  .then((responses: Promise<*>) => operate(responses))
-  .catch((error) => console.error(error))
+  .then((responses: any) => operate(responses))
+  .catch((error: any) => console.error(error))
 
 async function ask (questions: Array<Question>) {
   return prompts(questions)
