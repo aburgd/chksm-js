@@ -2,7 +2,7 @@
 import crypto from 'crypto'
 import prompts from 'prompts'
 import fs from 'fs'
-import { Question } from './exports'
+import { type Question } from './exports'
 
 const questions: Array<Question> = [
   {
