@@ -14,7 +14,7 @@
     "@babel/preset-flow": "^7.0.0-beta.44",
     "babel-eslint": "^8.2.3",
     "eslint-plugin-flowtype": "^2.46.2",
-    "flow-bin": "^0.69.0",
+    "flow-bin": "^0.70.0",
     "standard": "^11.0.1"
   },
   "dependencies": {
