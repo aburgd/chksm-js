@@ -37,11 +37,37 @@ const questions: Array<Question> = [
 ]
 
 ask(questions)
+  .catch((error: any) => console.error(error))
   .then((responses: any) => operate(responses))
   .catch((error: any) => console.error(error))
 
 async function ask (questions: Array<Question>) {
   return prompts(questions)
+}
+
+function chksm (algo, stream, msgDigest) {
+  let sum
+  switch (algo) {
+    case 1: sum = crypto.createHash('sha256')
+      break
+    case 2: sum = crypto.createHash('sha512')
+      break
+    case 3: sum = crypto.createHash('sha1')
+      break
+    case 4: sum = crypto.createHash('md5')
+      break
+    default: break
+  }
+
+  stream.on('error',
+    () => console.error('failed to open file: does not exist or' +
+      ' cannot be opened'))
+  stream.on('data', (data: Buffer) => sum.update(data, 'utf8'))
+  stream.on('end', () => {
+    let data = sum.digest(msgDigest)
+    console.log(data)
+    return data
+  })
 }
 
 async function operate (responses) {
@@ -50,47 +76,6 @@ async function operate (responses) {
   let digest = responses['digest']
 
   let stream = fs.createReadStream(filename)
-  let hash
 
-  switch (algo) {
-    // block-scope for `let` variables
-    case 1:
-      hash = crypto.createHash('sha256')
-      stream.on('data', (data: Buffer) => hash.update(data, 'utf8'))
-      stream.on('end', () => {
-        let data = hash.digest(digest)
-        console.log(data)
-        return data
-      })
-      break
-    case 2:
-      hash = crypto.createHash('sha512')
-      stream.on('data', (data: Buffer) => hash.update(data, 'utf8'))
-      stream.on('end', () => {
-        let data = hash.digest(digest)
-        console.log(data)
-        return data
-      })
-      break
-    case 3:
-      hash = crypto.createHash('sha1')
-      stream.on('data', (data: Buffer) => hash.update(data, 'utf8'))
-      stream.on('end', () => {
-        let data = hash.digest(digest)
-        console.log(data)
-        return data
-      })
-      break
-    case 4:
-      hash = crypto.createHash('md5')
-      stream.on('data', (data: Buffer) => hash.update(data, 'utf8'))
-      stream.on('end', () => {
-        let data = hash.digest(digest)
-        console.log(data)
-        return data
-      })
-      break
-    default:
-      break
-  }
+  chksm(algo, stream, digest)
 }
