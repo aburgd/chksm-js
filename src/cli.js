@@ -1,7 +1,7 @@
 // @flow
 import crypto from 'crypto'
 import prompts from 'prompts'
-import fs from 'fs'
+import fs, { type ReadStream } from 'fs'
 import { type Question } from './exports'
 
 const questions: Array<Question> = [
@@ -45,7 +45,7 @@ async function ask (questions: Array<Question>) {
   return prompts(questions)
 }
 
-function chksm (algo, stream, msgDigest) {
+function chksm (algo: number, stream: ReadStream, msgDigest: string) {
   let sum
   switch (algo) {
     case 1: sum = crypto.createHash('sha256')
