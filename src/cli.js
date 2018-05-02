@@ -64,7 +64,7 @@ function chksm (algo, stream, msgDigest) {
       ' cannot be opened'))
   stream.on('data', (data: Buffer) => sum.update(data, 'utf8'))
   stream.on('end', () => {
-    let data = sum.digest(msgDigest)
+    let data: string = sum.digest(msgDigest)
     console.log(data)
     return data
   })
