@@ -79,3 +79,5 @@ async function operate (responses) {
 
   chksm(algo, stream, digest)
 }
+
+module.exports = chksm
