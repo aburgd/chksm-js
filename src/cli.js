@@ -45,7 +45,7 @@ async function ask (questions: Array<Question>) {
   return prompts(questions)
 }
 
-function chksm (algo: number, stream: ReadStream, msgDigest: string) {
+function chksm (algo: string, stream: ReadStream, msgDigest: 'buffer') {
   let sum
   switch (algo) {
     case 1: sum = crypto.createHash('sha256')
@@ -64,7 +64,8 @@ function chksm (algo: number, stream: ReadStream, msgDigest: string) {
       ' cannot be opened'))
   stream.on('data', (data: Buffer) => sum.update(data, 'utf8'))
   stream.on('end', () => {
-    let data: string = sum.digest(msgDigest)
+    let data: Buffer = sum.digest(msgDigest)
+    data.toString()
     console.log(data)
     return data
   })
