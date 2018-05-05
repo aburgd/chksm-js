@@ -12,16 +12,21 @@
     "@babel/plugin-transform-async-to-generator": "^7.0.0-beta.46",
     "@babel/preset-env": "^7.0.0-beta.46",
     "@babel/preset-flow": "^7.0.0-beta.46",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
-    "eslint-plugin-flowtype": "^2.46.3",
-    "flow-bin": "^0.71.0",
+    "babel-jest": "^22.4.3",
+    "eslint-plugin-flowtype": "^2.46.2",
+    "flow-bin": "^0.70.0",
+    "jest": "^22.4.3",
+    "results": "^0.14.1",
     "standard": "^11.0.1"
   },
   "dependencies": {
     "prompts": "^0.1.5"
   },
   "scripts": {
-    "test": "standard --fix && flow src/cli.js",
+    "pretest": "standard --fix ./src && flow src/cli.js && babel tests -d testsLib",
+    "test": "node testsLib/tests.js",
     "start": "node lib/cli.js",
     "build": "babel src -d lib"
   },
@@ -31,7 +36,8 @@
       "flowtype"
     ],
     "ignore": [
-      "/lib/"
+      "/lib/",
+      "/testsLib/"
     ]
   },
   "private": true
