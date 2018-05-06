@@ -1,8 +1,7 @@
 // @flow
 import crypto from 'crypto'
 import prompts from 'prompts'
-import fs from 'fs'
-import { type Question } from './exports'
+import { chksm, type Question } from './exports'
 
 const questions: Array<Question> = [
   {
@@ -45,34 +44,6 @@ async function ask (questions: Array<Question>) {
   return prompts(questions)
 }
 
-function chksm (algo: string, filename: string, msgDigest: 'buffer') {
-  let sum
-  switch (algo) {
-    case 1: sum = crypto.createHash('sha256')
-      break
-    case 2: sum = crypto.createHash('sha512')
-      break
-    case 3: sum = crypto.createHash('sha1')
-      break
-    case 4: sum = crypto.createHash('md5')
-      break
-    default: break
-  }
-
-  let stream = fs.createReadStream(filename)
-
-  stream.on('error',
-    () => console.error('failed to open file: does not exist or' +
-      ' cannot be opened'))
-  stream.on('data', (data: Buffer) => sum.update(data, 'utf8'))
-  stream.on('end', () => {
-    let dig: Buffer = sum.digest(msgDigest)
-    dig.toString()
-    console.log(dig)
-    return dig
-  })
-}
-
 async function operate (responses) {
   let algo: string = responses['algo']
   let filename: string = responses['filename']
@@ -80,5 +51,3 @@ async function operate (responses) {
 
   chksm(algo, filename, msgDigest)
 }
-
-module.exports = chksm
