@@ -76,9 +76,9 @@ function chksm (algo: string, filename: string, msgDigest: 'buffer') {
 async function operate (responses) {
   let algo: string = responses['algo']
   let filename: string = responses['filename']
-  let digest = responses['digest']
+  let msgDigest: 'buffer' = responses['digest']
 
-  chksm(algo, filename, digest)
+  chksm(algo, filename, msgDigest)
 }
 
 module.exports = chksm
