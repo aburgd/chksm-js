@@ -6,9 +6,9 @@
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/@aburgd/results/-/results-0.1.4.tgz#649991d6888bd1cdf4f0ac44a0b9edcafca95222"
 
-"@babel/cli@^7.0.0-beta.47":
-  version "7.0.0-beta.47"
-  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.0.0-beta.47.tgz#e00cc40ffd9084a5243c8fbded3f5049bc970e4c"
+"@babel/cli@^7.0.0-beta.51":
+  version "7.0.0-beta.51"
+  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.0.0-beta.51.tgz#d186cdd59f9236bc9156aaa8eda61638f566b7fc"
   dependencies:
     commander "^2.8.1"
     convert-source-map "^1.1.0"
