@@ -22,7 +22,7 @@
     "standard": "^11.0.1"
   },
   "dependencies": {
-    "prompts": "^0.1.5"
+    "prompts": "^2.0.0"
   },
   "scripts": {
     "pretest": "standard --fix ./src && flow src/cli.js && babel tests -d testsLib",
