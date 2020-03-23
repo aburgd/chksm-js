@@ -183,6 +183,10 @@
   version "7.0.0-beta.47"
   resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.0.0-beta.47.tgz#4f564117ec39f96cf60fafcde35c9ddce0e008fd"
 
+"@babel/helper-plugin-utils@^7.8.3":
+  version "7.8.3"
+  resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.8.3.tgz#9ea293be19babc0f52ff8ca88b34c3611b208670"
+
 "@babel/helper-regex@7.0.0-beta.47":
   version "7.0.0-beta.47"
   resolved "https://registry.yarnpkg.com/@babel/helper-regex/-/helper-regex-7.0.0-beta.47.tgz#b8e3b53132c4edbb04804242c02ffe4d60316971"
@@ -305,11 +309,11 @@
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-beta.47"
 
-"@babel/plugin-syntax-flow@7.0.0-beta.47":
-  version "7.0.0-beta.47"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-flow/-/plugin-syntax-flow-7.0.0-beta.47.tgz#9d0b09b9af6fec87a7b22e406bf948089d58c188"
+"@babel/plugin-syntax-flow@^7.8.3":
+  version "7.8.3"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-flow/-/plugin-syntax-flow-7.8.3.tgz#f2c883bd61a6316f2c89380ae5122f923ba4527f"
   dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.47"
+    "@babel/helper-plugin-utils" "^7.8.3"
 
 "@babel/plugin-syntax-object-rest-spread@7.0.0-beta.47":
   version "7.0.0-beta.47"
@@ -396,12 +400,12 @@
     "@babel/helper-builder-binary-assignment-operator-visitor" "7.0.0-beta.47"
     "@babel/helper-plugin-utils" "7.0.0-beta.47"
 
-"@babel/plugin-transform-flow-strip-types@7.0.0-beta.47":
-  version "7.0.0-beta.47"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-flow-strip-types/-/plugin-transform-flow-strip-types-7.0.0-beta.47.tgz#fa45811094c10d70c84efdd0eac62ebd2a634bf7"
+"@babel/plugin-transform-flow-strip-types@^7.9.0":
+  version "7.9.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-flow-strip-types/-/plugin-transform-flow-strip-types-7.9.0.tgz#8a3538aa40434e000b8f44a3c5c9ac7229bd2392"
   dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.47"
-    "@babel/plugin-syntax-flow" "7.0.0-beta.47"
+    "@babel/helper-plugin-utils" "^7.8.3"
+    "@babel/plugin-syntax-flow" "^7.8.3"
 
 "@babel/plugin-transform-for-of@7.0.0-beta.47":
   version "7.0.0-beta.47"
@@ -562,12 +566,12 @@
     invariant "^2.2.2"
     semver "^5.3.0"
 
-"@babel/preset-flow@^7.0.0-beta.47":
-  version "7.0.0-beta.47"
-  resolved "https://registry.yarnpkg.com/@babel/preset-flow/-/preset-flow-7.0.0-beta.47.tgz#ad74dc20429718f70ffaf91f280790474f55060a"
+"@babel/preset-flow@^7.9.0":
+  version "7.9.0"
+  resolved "https://registry.yarnpkg.com/@babel/preset-flow/-/preset-flow-7.9.0.tgz#fee847c3e090b0b2d9227c1949e4da1d1379280d"
   dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.47"
-    "@babel/plugin-transform-flow-strip-types" "7.0.0-beta.47"
+    "@babel/helper-plugin-utils" "^7.8.3"
+    "@babel/plugin-transform-flow-strip-types" "^7.9.0"
 
 "@babel/template@7.0.0-beta.44":
   version "7.0.0-beta.44"
