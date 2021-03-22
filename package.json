@@ -9,20 +9,20 @@
   "devDependencies": {
     "@aburgd/results": "^0.1.4",
     "@babel/cli": "^7.0.0-beta.47",
-    "@babel/core": "^7.0.0-beta.47",
+    "@babel/core": "^7.0.0-beta.51",
     "@babel/plugin-transform-async-to-generator": "^7.0.0-beta.47",
     "@babel/preset-env": "^7.0.0-beta.47",
     "@babel/preset-flow": "^7.0.0-beta.47",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
-    "babel-jest": "^22.4.4",
     "eslint-plugin-flowtype": "^3.0.0",
-    "flow-bin": "^0.71.0",
+    "babel-jest": "^23.0.0",
+    "flow-bin": "^0.73.0",
     "jest": "^22.4.4",
-    "standard": "^11.0.1"
+    "standard": "^12.0.0"
   },
   "dependencies": {
-    "prompts": "^0.1.5"
+    "prompts": "^1.0.0"
   },
   "scripts": {
     "pretest": "standard --fix ./src && flow src/cli.js && babel tests -d testsLib",
